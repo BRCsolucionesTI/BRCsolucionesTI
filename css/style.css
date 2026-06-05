@@ -1586,6 +1586,15 @@ body {
   height: 18px;
 }
 
+.modal__success {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0a0a0a;
+  line-height: 1.6;
+}
+
 @media (max-width: 480px) {
   .modal__services {
     grid-template-columns: 1fr;
