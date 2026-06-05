@@ -36,6 +36,33 @@ document.getElementById('modalForm').addEventListener('submit', (e) => {
   window.location.href = `mailto:admin@operumti.com?subject=Contacto desde web&body=${mailtoBody}%0ACorreo: ${email}`;
 });
 
+// Marquee infinito sin espacios en blanco
+(function () {
+  function setupMarquee() {
+    var track = document.getElementById('clientsTrack');
+    if (!track) return;
+
+    var singleSet = track.innerHTML;
+    var setWidth = track.scrollWidth;
+
+    if (setWidth === 0) {
+      requestAnimationFrame(setupMarquee);
+      return;
+    }
+
+    // Cuántas copias necesitamos para que UNA mitad llene la pantalla
+    var copies = Math.max(Math.ceil(window.innerWidth / setWidth) + 1, 2);
+
+    var half = '';
+    for (var i = 0; i < copies; i++) half += singleSet;
+
+    // El track = mitad A + mitad B (idénticas), la animación -50% hace el loop
+    track.innerHTML = half + half;
+  }
+
+  requestAnimationFrame(setupMarquee);
+})();
+
 // Nav shadow on scroll
 const nav = document.querySelector('.nav');
 window.addEventListener('scroll', () => {
