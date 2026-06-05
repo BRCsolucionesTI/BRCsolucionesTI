@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios — BRC Soluciones TI</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ---- PAGE HERO ---- */
+    .page-hero {
+      padding: 140px 0 72px;
+      background: #ffffff;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .page-hero__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .page-hero__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #c0392b;
+      margin-bottom: 20px;
+    }
+    .page-hero__tag::before {
+      content: '';
+      width: 20px;
+      height: 1.5px;
+      background: #c0392b;
+      display: block;
+    }
+    .page-hero__title {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: #0a0a0a;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+    .page-hero__sub {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555;
+      max-width: 560px;
+    }
+
+    /* ---- SERVICES PAGE ---- */
+    .svc-page {
+      padding: 80px 0 100px;
+      background: #ffffff;
+    }
+    .svc-page__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    /* ---- SERVICE BLOCK ---- */
+    .svc-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .svc-block--reverse {
+      direction: rtl;
+    }
+    .svc-block--reverse > * {
+      direction: ltr;
+    }
+    .svc-block__left {}
+    .svc-block__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #c0392b;
+      margin-bottom: 16px;
+    }
+    .svc-block__tag::before {
+      content: '';
+      width: 16px;
+      height: 1.5px;
+      background: #c0392b;
+      display: block;
+    }
+    .svc-block__title {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: #0a0a0a;
+      margin-bottom: 16px;
+    }
+    .svc-block__desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 32px;
+    }
+    .svc-block__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0a0a0a;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 13px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .svc-block__cta:hover {
+      background: #c0392b;
+      transform: translateY(-2px);
+    }
+    .svc-block__cta svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ---- RIGHT PANEL ---- */
+    .svc-block__right {}
+
+    /* Stages panel */
+    .svc-stages {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .svc-stage {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .svc-stage:last-child {
+      border-bottom: none;
+    }
+    .svc-stage__num {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: #e8e8e8;
+      line-height: 1;
+      min-width: 36px;
+      padding-top: 2px;
+      transition: color 0.2s;
+    }
+    .svc-stage:hover .svc-stage__num {
+      color: #c0392b;
+    }
+    .svc-stage__title {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .svc-stage__text {
+      font-size: 0.84rem;
+      line-height: 1.65;
+      color: #777;
+    }
+
+    /* Features panel */
+    .svc-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .svc-feature {
+      background: #f9f9f9;
+      border-radius: 14px;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .svc-feature:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .svc-feature__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #fdf0ef;
+      border: 1px solid #f5c6c2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .svc-feature__icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #c0392b;
+      stroke-width: 1.8;
+    }
+    .svc-feature__title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      letter-spacing: -0.01em;
+    }
+    .svc-feature__text {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: #777;
+    }
+
+    /* Divider */
+    .svc-divider {
+      border: none;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 860px) {
+      .svc-block {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .svc-block--reverse {
+        direction: ltr;
+      }
+      .svc-features {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 500px) {
+      .svc-features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="imagenes/Operum TI.png" alt="BRC Consultora TI" class="nav__logo-img" />
+        <span class="nav__logo-text">
+          <span class="nav__logo-name">BRC <span style="color: #9ca3af; font-size: 0.65em;">Soluciones</span></span>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="servicios.html" class="nav__link--active">Servicios</a></li>
+        <li><a href="index.html#clientes">Clientes</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li><a href="casos.html">Casos</a></li>
+        <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
+      </ul>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="navMobile">
+    <button class="nav__mobile-close" id="navMobileClose" aria-label="Cerrar menú">
+      <i data-lucide="x"></i>
+    </button>
+    <ul class="nav__mobile-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="servicios.html" class="nav__link--active">Servicios</a></li>
+      <li><a href="index.html#clientes">Clientes</a></li>
+      <li><a href="index.html#nosotros">Nosotros</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <span class="page-hero__tag">Servicios</span>
+      <h1 class="page-hero__title">Lo que hacemos<br />en BRC Soluciones TI</h1>
+      <p class="page-hero__sub">Dos servicios distintos según el momento en que está tu empresa. Uno para modernizarte desde adentro, otro para construir lo que el mercado aún no tiene.</p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="svc-page">
+    <div class="svc-page__inner">
+
+      <!-- SERVICIO 1: TRANSFORMACIÓN DIGITAL -->
+      <div class="svc-block">
+        <div class="svc-block__left">
+          <span class="svc-block__tag">Servicio 01</span>
+          <h2 class="svc-block__title">Transformación Digital</h2>
+          <p class="svc-block__desc">Un acompañamiento continuo donde entramos a tu empresa, entendemos cómo funciona e identificamos qué tecnología necesita. Sin tecnicismos ni tecnología por moda — solo lo que realmente resuelve problemas concretos.</p>
+          <p class="svc-block__desc" style="margin-bottom:0;font-size:0.92rem;color:#888;">Ideal para empresas con procesos manuales, sin equipo TI interno o que quieren modernizarse sin saber por dónde empezar.</p>
+          <br />
+          <button class="svc-block__cta js-open-modal">Consultar por este servicio <i data-lucide="arrow-right"></i></button>
+        </div>
+        <div class="svc-block__right">
+          <div class="svc-stages">
+            <div class="svc-stage">
+              <div class="svc-stage__num">01</div>
+              <div>
+                <div class="svc-stage__title">Diagnóstico de Madurez Tecnológica</div>
+                <div class="svc-stage__text">Evaluamos cómo está la empresa hoy y entregamos un informe con el nivel de madurez actual.</div>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-stage__num">02</div>
+              <div>
+                <div class="svc-stage__title">Hoja de Ruta</div>
+                <div class="svc-stage__text">Definimos qué cambiar, en qué orden y por qué, según impacto real en el negocio.</div>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-stage__num">03</div>
+              <div>
+                <div class="svc-stage__title">Adopción Tecnológica</div>
+                <div class="svc-stage__text">Configuramos herramientas y capacitamos al equipo para que la tecnología se use de verdad.</div>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-stage__num">04</div>
+              <div>
+                <div class="svc-stage__title">Adopción de Inteligencia Artificial</div>
+                <div class="svc-stage__text">Aplicamos IA donde genera valor real y capacitamos al equipo para usarla en su día a día.</div>
+              </div>
+            </div>
+            <div class="svc-stage">
+              <div class="svc-stage__num">05</div>
+              <div>
+                <div class="svc-stage__title">Oportunidades de Desarrollo</div>
+                <div class="svc-stage__text">Si ninguna herramienta del mercado resuelve el problema, proponemos desarrollo a medida.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="svc-divider" />
+
+      <!-- SERVICIO 2: SOFTWARE A MEDIDA -->
+      <div class="svc-block svc-block--reverse">
+        <div class="svc-block__left">
+          <span class="svc-block__tag">Servicio 02</span>
+          <h2 class="svc-block__title">Software a Medida</h2>
+          <p class="svc-block__desc">Desarrollamos soluciones digitales diseñadas exactamente para cómo funciona tu operación. Sin plantillas ni software genérico — construimos lo que el mercado aún no tiene.</p>
+          <p class="svc-block__desc" style="margin-bottom:0;font-size:0.92rem;color:#888;">Para empresas con procesos críticos que no tienen solución en el mercado o que ya saben qué necesitan construir.</p>
+          <br />
+          <button class="svc-block__cta js-open-modal">Consultar por este servicio <i data-lucide="arrow-right"></i></button>
+        </div>
+        <div class="svc-block__right">
+          <div class="svc-features">
+            <div class="svc-feature">
+              <div class="svc-feature__icon"><i data-lucide="sliders"></i></div>
+              <div class="svc-feature__title">Sistemas de gestión y control</div>
+              <div class="svc-feature__text">Plataformas que centralizan y automatizan la operación en tiempo real.</div>
+            </div>
+            <div class="svc-feature">
+              <div class="svc-feature__icon"><i data-lucide="bar-chart-2"></i></div>
+              <div class="svc-feature__title">Business Intelligence</div>
+              <div class="svc-feature__text">Dashboards y reportes para tomar decisiones con datos reales del negocio.</div>
+            </div>
+            <div class="svc-feature">
+              <div class="svc-feature__icon"><i data-lucide="cpu"></i></div>
+              <div class="svc-feature__title">Inteligencia Artificial</div>
+              <div class="svc-feature__text">Automatización y predicción integradas directamente en tus procesos.</div>
+            </div>
+            <div class="svc-feature">
+              <div class="svc-feature__icon"><i data-lucide="radio"></i></div>
+              <div class="svc-feature__title">IoT Industrial</div>
+              <div class="svc-feature__text">Conexión de equipos y sensores para monitoreo y control en terreno.</div>
+            </div>
+            <div class="svc-feature">
+              <div class="svc-feature__icon"><i data-lucide="layers"></i></div>
+              <div class="svc-feature__title">Integraciones</div>
+              <div class="svc-feature__text">Conectamos tu software nuevo con los sistemas que ya usas.</div>
+            </div>
+            <div class="svc-feature">
+              <div class="svc-feature__icon"><i data-lucide="shield-check"></i></div>
+              <div class="svc-feature__title">Soporte y evolución</div>
+              <div class="svc-feature__text">Acompañamos el sistema después del lanzamiento y lo hacemos crecer contigo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="contact" id="contacto">
+    <div class="contact__footer">
+      <span class="contact__copy">© 2025 <strong>BRC Consultora TI</strong> — Todos los derechos reservados</span>
+    </div>
+  </footer>
+
+  <!-- MODAL CONTACTO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <div class="modal__header">
+        <span class="modal__tag">Hablemos</span>
+        <h3 class="modal__title">¿En qué podemos ayudarte?</h3>
+        <p class="modal__sub">Selecciona los servicios que te interesan y te contactamos a la brevedad.</p>
+      </div>
+      <form class="modal__form" id="modalForm">
+        <div class="modal__services">
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Software a medida" />
+            <span class="service-check__box"><i data-lucide="code-2"></i></span>
+            <span class="service-check__label">Software a medida</span>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Sistemas de gestión y control" />
+            <span class="service-check__box"><i data-lucide="sliders"></i></span>
+            <span class="service-check__label">Sistemas de gestión y control</span>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Business Intelligence" />
+            <span class="service-check__box"><i data-lucide="bar-chart-2"></i></span>
+            <span class="service-check__label">Business Intelligence</span>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Inteligencia Artificial" />
+            <span class="service-check__box"><i data-lucide="cpu"></i></span>
+            <span class="service-check__label">Inteligencia Artificial</span>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="IoT Industrial" />
+            <span class="service-check__box"><i data-lucide="radio"></i></span>
+            <span class="service-check__label">IoT Industrial</span>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Consultoría TI" />
+            <span class="service-check__box"><i data-lucide="lightbulb"></i></span>
+            <span class="service-check__label">Consultoría TI</span>
+          </label>
+        </div>
+        <div class="modal__fields">
+          <div class="modal__field">
+            <label class="modal__label">Nombre</label>
+            <input type="text" class="modal__input" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="modal__field">
+            <label class="modal__label">Correo electrónico</label>
+            <input type="email" class="modal__input" name="email" placeholder="tu@correo.com" required />
+          </div>
+          <div class="modal__field">
+            <label class="modal__label">Teléfono</label>
+            <div class="modal__phone">
+              <span class="modal__phone-prefix">+569</span>
+              <input type="tel" class="modal__input modal__input--phone" name="telefono" placeholder="12345678" maxlength="8" required />
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="modal__submit">Enviar mensaje <i data-lucide="send"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>
