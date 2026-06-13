@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros | BRC Soluciones TI</title>
+  <meta name="description" content="Conoce la misión de BRC Soluciones TI y al equipo que acompaña a las empresas en su transformación digital." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ---- NOSOTROS PAGE ---- */
+    .vision {
+      padding: 0;
+    }
+    .vision__inner {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      grid-template-rows: auto 1fr;
+      gap: 32px 56px;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: clamp(24px, 4vw, 40px);
+    }
+    .vision__founder {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-self: start;
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .vision__founder-avatar {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .vision__founder:hover .vision__founder-avatar {
+      box-shadow: 0 8px 28px rgba(192, 57, 43, 0.18);
+      transform: translateY(-3px);
+    }
+    .vision__founder-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transform: scale(1.15);
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+    .vision__founder:hover .vision__founder-photo {
+      filter: grayscale(0%);
+    }
+    .vision__founder-photo--down {
+      object-position: center 65% !important;
+      transform: scale(1.35) !important;
+    }
+    .vision + .vision {
+      margin-top: 32px;
+    }
+    .vision__founder-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .vision__founder-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      letter-spacing: -0.02em;
+    }
+    .vision__founder-role {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .vision__body {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      grid-column: 1;
+      grid-row: 2;
+      align-self: start;
+    }
+    .vision__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c0392b;
+    }
+    .vision__tag::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: #c0392b;
+    }
+    .vision__title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: #0a0a0a;
+    }
+    .vision__text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555;
+      font-weight: 400;
+    }
+    .vision__text strong {
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+
+    /* Gráfico ecosistema tech */
+    .vision__graphic {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1;
+      margin: 0 auto;
+    }
+    .vision__graphic-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .vision__graphic-lines line,
+    .vision__graphic-lines polyline {
+      stroke: #e8e8e8;
+      stroke-width: 0.6;
+      fill: none;
+    }
+    .vision__graphic-lines polyline {
+      stroke-dasharray: 3 3;
+    }
+    .vision__node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #ebebeb;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      transition: transform 0.25s, box-shadow 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .vision__node svg {
+      width: 20px;
+      height: 20px;
+    }
+    .vision__node:hover {
+      transform: translate(-50%, -50%) translateY(-3px);
+      box-shadow: 0 8px 22px rgba(192, 57, 43, 0.15);
+      border-color: #f3d4cf;
+      color: #c0392b;
+    }
+    .vision__node--center {
+      width: 72px;
+      height: 72px;
+      background: #c0392b;
+      border: none;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(192, 57, 43, 0.25);
+      z-index: 2;
+    }
+    .vision__node--center svg {
+      width: 28px;
+      height: 28px;
+    }
+    .vision__node--center:hover {
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+    }
+    @media (max-width: 900px) {
+      .vision__inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+      .vision__founder {
+        grid-row: 1;
+        justify-self: center;
+      }
+      .vision__body {
+        grid-row: 2;
+      }
+      .vision__graphic {
+        grid-column: 1;
+        grid-row: 3;
+        max-width: 240px;
+        margin-top: 8px;
+      }
+      .vision__node {
+        width: 44px;
+        height: 44px;
+      }
+      .vision__node svg {
+        width: 18px;
+        height: 18px;
+      }
+      .vision__node--center {
+        width: 60px;
+        height: 60px;
+      }
+      .vision__node--center svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="imagenes/Operum TI.png" alt="BRC Soluciones TI" class="nav__logo-img" />
+        <span class="nav__logo-text">
+          <span class="nav__logo-name">BRC <span style="color: #9ca3af; font-size: 0.65em;">Soluciones</span></span>
+        </span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html" class="nav__link--active">Nosotros</a></li>
+        <li><a href="casos.html">Casos</a></li>
+        <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
+      </ul>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile" id="navMobile">
+    <button class="nav__mobile-close" id="navMobileClose" aria-label="Cerrar menú">
+      <i data-lucide="x"></i>
+    </button>
+    <ul class="nav__mobile-links">
+      <li><a href="index.html#inicio">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="nosotros.html" class="nav__link--active">Nosotros</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
+    </ul>
+  </div>
+
+  <!-- NOSOTROS -->
+  <section class="cases cases--page about-page">
+    <div class="cases__inner">
+
+      <!-- VISIÓN -->
+      <div class="vision">
+        <div class="vision__inner">
+          <div class="vision__founder">
+            <div class="vision__founder-avatar">
+              <img src="imagenes/perfilbenjaminriveros%20.png" alt="Benjamín Riveros" class="vision__founder-photo" />
+            </div>
+            <div class="vision__founder-info">
+              <span class="vision__founder-name">Benjamín Riveros</span>
+              <span class="vision__founder-role">Fundador & CTO, BRC Soluciones TI</span>
+            </div>
+          </div>
+          <div class="vision__body">
+            <span class="vision__tag">Visión de BRC Soluciones</span>
+            <h3 class="vision__title">Gestión inteligente al alcance de todos</h3>
+            <p class="vision__text">Creemos que toda empresa, sin importar su tamaño o industria, merece acceso a herramientas de gestión y control inteligente que permitan operar con mayor eficiencia, tener <strong>visibilidad total de sus procesos</strong> y detectar desviaciones antes de que se conviertan en problemas — para tomar <strong>decisiones con datos reales, no a ciegas</strong>.</p>
+          </div>
+          <div class="vision__graphic" aria-hidden="true">
+            <svg class="vision__graphic-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <line x1="50" y1="50" x2="50" y2="10" />
+              <line x1="50" y1="50" x2="88" y2="34" />
+              <line x1="50" y1="50" x2="74" y2="80" />
+              <line x1="50" y1="50" x2="26" y2="80" />
+              <line x1="50" y1="50" x2="12" y2="34" />
+            </svg>
+            <div class="vision__node vision__node--center" style="left:50%; top:50%;"><i data-lucide="share-2"></i></div>
+            <div class="vision__node" style="left:50%; top:10%;"><i data-lucide="cloud"></i></div>
+            <div class="vision__node" style="left:88%; top:34%;"><i data-lucide="database"></i></div>
+            <div class="vision__node" style="left:74%; top:80%;"><i data-lucide="cpu"></i></div>
+            <div class="vision__node" style="left:26%; top:80%;"><i data-lucide="bar-chart-3"></i></div>
+            <div class="vision__node" style="left:12%; top:34%;"><i data-lucide="code-2"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MISIÓN -->
+      <div class="vision">
+        <div class="vision__inner">
+          <div class="vision__founder">
+            <div class="vision__founder-avatar">
+              <img src="imagenes/perfilnando.jpeg" alt="Nando Sanzana" class="vision__founder-photo vision__founder-photo--down" />
+            </div>
+            <div class="vision__founder-info">
+              <span class="vision__founder-name">Nando Sanzana</span>
+              <span class="vision__founder-role">Desarrollador de Nuevos Negocios, BRC Soluciones TI</span>
+            </div>
+          </div>
+          <div class="vision__body">
+            <span class="vision__tag">Misión de BRC Soluciones</span>
+            <h3 class="vision__title">Queremos acompañarte en cada paso de tu transformación digital</h3>
+            <p class="vision__text">En BRC Soluciones queremos ser ese equipo que camina contigo, aportando la tecnología y los cambios que tu empresa necesita para <strong>mejorar tus procesos, tu control y tu eficiencia</strong>. Nuestro objetivo es simple: que enfrentes los desafíos de tu industria con más seguridad y <strong>mejores resultados</strong>.</p>
+          </div>
+          <div class="vision__graphic" aria-hidden="true">
+            <svg class="vision__graphic-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <polyline points="14,86 38,62 64,38 88,14" />
+            </svg>
+            <div class="vision__node" style="left:14%; top:86%;"><i data-lucide="map-pin"></i></div>
+            <div class="vision__node vision__node--center" style="left:38%; top:62%;"><i data-lucide="users"></i></div>
+            <div class="vision__node" style="left:64%; top:38%;"><i data-lucide="settings-2"></i></div>
+            <div class="vision__node" style="left:88%; top:14%;"><i data-lucide="trending-up"></i></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="contact" id="contacto">
+    <div class="contact__footer">
+      <span class="contact__copy">© 2025 <strong>BRC Soluciones TI</strong> — Todos los derechos reservados</span>
+    </div>
+  </footer>
+
+  <!-- MODAL CONTACTO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal__close" id="modalClose" aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <div class="modal__header">
+        <span class="modal__tag">Hablemos</span>
+        <h3 class="modal__title">¿En qué podemos ayudarte?</h3>
+        <p class="modal__sub">Selecciona los servicios que te interesan y te contactamos a la brevedad.</p>
+      </div>
+      <form class="modal__form" id="modalForm">
+        <div class="modal__services">
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Consultoría TI (Transformación Digital)" />
+            <span class="service-check__box"><i data-lucide="lightbulb"></i></span>
+            <span class="service-check__label">Consultoría TI (Transformación Digital)</span>
+          </label>
+          <label class="service-check">
+            <input type="checkbox" name="servicio" value="Software a medida" />
+            <span class="service-check__box"><i data-lucide="code-2"></i></span>
+            <span class="service-check__label">Software a medida</span>
+          </label>
+        </div>
+        <div class="modal__fields">
+          <div class="modal__field">
+            <label class="modal__label">Nombre</label>
+            <input type="text" class="modal__input" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="modal__field">
+            <label class="modal__label">Correo electrónico</label>
+            <input type="email" class="modal__input" name="email" placeholder="tu@correo.com" required />
+          </div>
+          <div class="modal__field">
+            <label class="modal__label">Teléfono</label>
+            <div class="modal__phone">
+              <span class="modal__phone-prefix">+569</span>
+              <input type="tel" class="modal__input modal__input--phone" name="telefono" placeholder="12345678" maxlength="8" required />
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="modal__submit">Enviar mensaje <i data-lucide="send"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>

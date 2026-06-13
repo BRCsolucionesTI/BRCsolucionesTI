@@ -3,59 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Servicios — BRC Soluciones TI</title>
+  <title>Servicios de Consultoría TI y Desarrollo de Software a Medida | BRC Soluciones TI</title>
+  <meta name="description" content="Dos servicios: Transformación Digital (diagnóstico, hoja de ruta y adopción de IA) y Software a Medida (sistemas de gestión, BI, IA e IoT) para empresas de cualquier industria." />
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
-    /* ---- PAGE HERO ---- */
-    .page-hero {
-      padding: 140px 0 72px;
-      background: #ffffff;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .page-hero__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    .page-hero__tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #c0392b;
-      margin-bottom: 20px;
-    }
-    .page-hero__tag::before {
-      content: '';
-      width: 20px;
-      height: 1.5px;
-      background: #c0392b;
-      display: block;
-    }
-    .page-hero__title {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      color: #0a0a0a;
-      margin-bottom: 20px;
-      max-width: 700px;
-    }
-    .page-hero__sub {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #555;
-      max-width: 560px;
-    }
-
     /* ---- SERVICES PAGE ---- */
     .svc-page {
-      padding: 80px 0 100px;
+      padding: 140px 0 100px;
       background: #ffffff;
     }
     .svc-page__inner {
@@ -257,7 +213,7 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
-        <img src="imagenes/Operum TI.png" alt="BRC Consultora TI" class="nav__logo-img" />
+        <img src="imagenes/Operum TI.png" alt="BRC Soluciones TI" class="nav__logo-img" />
         <span class="nav__logo-text">
           <span class="nav__logo-name">BRC <span style="color: #9ca3af; font-size: 0.65em;">Soluciones</span></span>
         </span>
@@ -265,8 +221,7 @@
       <ul class="nav__links">
         <li><a href="index.html#inicio">Inicio</a></li>
         <li><a href="servicios.html" class="nav__link--active">Servicios</a></li>
-        <li><a href="index.html#clientes">Clientes</a></li>
-        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="casos.html">Casos</a></li>
         <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
       </ul>
@@ -284,21 +239,11 @@
     <ul class="nav__mobile-links">
       <li><a href="index.html#inicio">Inicio</a></li>
       <li><a href="servicios.html" class="nav__link--active">Servicios</a></li>
-      <li><a href="index.html#clientes">Clientes</a></li>
-      <li><a href="index.html#nosotros">Nosotros</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="casos.html">Casos</a></li>
       <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
     </ul>
   </div>
-
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero__inner">
-      <span class="page-hero__tag">Servicios</span>
-      <h1 class="page-hero__title">Lo que hacemos<br />en BRC Soluciones TI</h1>
-      <p class="page-hero__sub">Dos servicios distintos según el momento en que está tu empresa. Uno para modernizarte desde adentro, otro para construir lo que el mercado aún no tiene.</p>
-    </div>
-  </section>
 
   <!-- SERVICIOS -->
   <section class="svc-page">
@@ -309,7 +254,7 @@
         <div class="svc-block__left">
           <span class="svc-block__tag">Servicio 01</span>
           <h2 class="svc-block__title">Transformación Digital</h2>
-          <p class="svc-block__desc">Un acompañamiento continuo donde entramos a tu empresa, entendemos cómo funciona e identificamos qué tecnología necesita. Sin tecnicismos ni tecnología por moda — solo lo que realmente resuelve problemas concretos.</p>
+          <p class="svc-block__desc">Un acompañamiento continuo donde entramos a tu empresa, entendemos cómo opera hoy y diseñamos la hoja de ruta hacia la digitalización. Sin tecnicismos ni tecnología por moda — solo las herramientas que tu negocio necesita para dar el salto al futuro.</p>
           <p class="svc-block__desc" style="margin-bottom:0;font-size:0.92rem;color:#888;">Ideal para empresas con procesos manuales, sin equipo TI interno o que quieren modernizarse sin saber por dónde empezar.</p>
           <br />
           <button class="svc-block__cta js-open-modal">Consultar por este servicio <i data-lucide="arrow-right"></i></button>
@@ -362,7 +307,7 @@
         <div class="svc-block__left">
           <span class="svc-block__tag">Servicio 02</span>
           <h2 class="svc-block__title">Software a Medida</h2>
-          <p class="svc-block__desc">Desarrollamos soluciones digitales diseñadas exactamente para cómo funciona tu operación. Sin plantillas ni software genérico — construimos lo que el mercado aún no tiene.</p>
+          <p class="svc-block__desc">Desarrollamos soluciones digitales a la medida de tu operación, incorporando datos, automatización e inteligencia artificial desde el diseño. Sin plantillas ni software genérico — construimos la tecnología que tu empresa necesita para liderar su industria.</p>
           <p class="svc-block__desc" style="margin-bottom:0;font-size:0.92rem;color:#888;">Para empresas con procesos críticos que no tienen solución en el mercado o que ya saben qué necesitan construir.</p>
           <br />
           <button class="svc-block__cta js-open-modal">Consultar por este servicio <i data-lucide="arrow-right"></i></button>
@@ -409,7 +354,7 @@
   <!-- FOOTER -->
   <footer class="contact" id="contacto">
     <div class="contact__footer">
-      <span class="contact__copy">© 2025 <strong>BRC Consultora TI</strong> — Todos los derechos reservados</span>
+      <span class="contact__copy">© 2025 <strong>BRC Soluciones TI</strong> — Todos los derechos reservados</span>
     </div>
   </footer>
 
@@ -425,34 +370,14 @@
       <form class="modal__form" id="modalForm">
         <div class="modal__services">
           <label class="service-check">
+            <input type="checkbox" name="servicio" value="Consultoría TI (Transformación Digital)" />
+            <span class="service-check__box"><i data-lucide="lightbulb"></i></span>
+            <span class="service-check__label">Consultoría TI (Transformación Digital)</span>
+          </label>
+          <label class="service-check">
             <input type="checkbox" name="servicio" value="Software a medida" />
             <span class="service-check__box"><i data-lucide="code-2"></i></span>
             <span class="service-check__label">Software a medida</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Sistemas de gestión y control" />
-            <span class="service-check__box"><i data-lucide="sliders"></i></span>
-            <span class="service-check__label">Sistemas de gestión y control</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Business Intelligence" />
-            <span class="service-check__box"><i data-lucide="bar-chart-2"></i></span>
-            <span class="service-check__label">Business Intelligence</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Inteligencia Artificial" />
-            <span class="service-check__box"><i data-lucide="cpu"></i></span>
-            <span class="service-check__label">Inteligencia Artificial</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="IoT Industrial" />
-            <span class="service-check__box"><i data-lucide="radio"></i></span>
-            <span class="service-check__label">IoT Industrial</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Consultoría TI" />
-            <span class="service-check__box"><i data-lucide="lightbulb"></i></span>
-            <span class="service-check__label">Consultoría TI</span>
           </label>
         </div>
         <div class="modal__fields">

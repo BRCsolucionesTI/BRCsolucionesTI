@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casos de Éxito — BRC Consultora TI</title>
+  <title>Casos de Éxito | BRC Soluciones TI</title>
+  <meta name="description" content="Conoce cómo empresas de distintos rubros han mejorado su eficiencia operacional con las soluciones de BRC Soluciones TI." />
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -14,15 +15,15 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
-        <img src="imagenes/Operum TI.png" alt="BRC Consultora TI" class="nav__logo-img" />
+        <img src="imagenes/Operum TI.png" alt="BRC Soluciones TI" class="nav__logo-img" />
         <span class="nav__logo-text">
           <span class="nav__logo-name">BRC <span style="color: #9ca3af; font-size: 0.65em;">Soluciones</span></span>
         </span>
       </a>
       <ul class="nav__links">
         <li><a href="index.html#inicio">Inicio</a></li>
-        <li><a href="index.html#clientes">Clientes</a></li>
-        <li><a href="index.html#mision">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="casos.html" class="nav__link--active">Casos</a></li>
         <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
       </ul>
@@ -39,8 +40,8 @@
     </button>
     <ul class="nav__mobile-links">
       <li><a href="index.html#inicio">Inicio</a></li>
-      <li><a href="index.html#clientes">Clientes</a></li>
-      <li><a href="index.html#mision">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="casos.html" class="nav__link--active">Casos</a></li>
       <li><button class="nav__cta js-open-modal" style="cursor:pointer;border:none;font-family:inherit;">Hablemos</button></li>
     </ul>
@@ -52,8 +53,8 @@
 
       <div class="cases__header">
         <span class="cases__tag">Casos de éxito</span>
-        <h2 class="cases__title">Proyectos que transformaron<br />operaciones reales</h2>
-        <p class="cases__sub">Soluciones construidas a medida para los desafíos de la industria.</p>
+        <h2 class="cases__title">Resultados reales en<br />empresas reales</h2>
+        <p class="cases__sub">Cada proyecto nace de un problema concreto. Estos son algunos ejemplos de cómo ayudamos a nuestros clientes a operar con más control, visibilidad y eficiencia.</p>
       </div>
 
       <div class="cases__grid">
@@ -150,7 +151,7 @@
   <!-- FOOTER -->
   <footer class="contact" id="contacto">
     <div class="contact__footer">
-      <span class="contact__copy">© 2025 <strong>BRC Consultora TI</strong> — Todos los derechos reservados</span>
+      <span class="contact__copy">© 2025 <strong>BRC Soluciones TI</strong> — Todos los derechos reservados</span>
     </div>
   </footer>
 
@@ -166,29 +167,14 @@
       <form class="modal__form" id="modalForm">
         <div class="modal__services">
           <label class="service-check">
+            <input type="checkbox" name="servicio" value="Consultoría TI (Transformación Digital)" />
+            <span class="service-check__box"><i data-lucide="lightbulb"></i></span>
+            <span class="service-check__label">Consultoría TI (Transformación Digital)</span>
+          </label>
+          <label class="service-check">
             <input type="checkbox" name="servicio" value="Software a medida" />
             <span class="service-check__box"><i data-lucide="code-2"></i></span>
             <span class="service-check__label">Software a medida</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Sistemas de gestión y control" />
-            <span class="service-check__box"><i data-lucide="sliders"></i></span>
-            <span class="service-check__label">Sistemas de gestión y control</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Business Intelligence" />
-            <span class="service-check__box"><i data-lucide="bar-chart-2"></i></span>
-            <span class="service-check__label">Business Intelligence</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="Inteligencia Artificial" />
-            <span class="service-check__box"><i data-lucide="cpu"></i></span>
-            <span class="service-check__label">Inteligencia Artificial</span>
-          </label>
-          <label class="service-check">
-            <input type="checkbox" name="servicio" value="IoT Industrial" />
-            <span class="service-check__box"><i data-lucide="radio"></i></span>
-            <span class="service-check__label">IoT Industrial</span>
           </label>
         </div>
         <div class="modal__fields">
