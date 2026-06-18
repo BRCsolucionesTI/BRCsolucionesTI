@@ -1,33 +1,5 @@
-// Modal
-const modalOverlay = document.getElementById('modalOverlay');
-const modalClose = document.getElementById('modalClose');
-
-const openModal = () => {
-  modalOverlay.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-  lucide.createIcons();
-};
-
-const closeModal = () => {
-  modalOverlay.classList.remove('is-open');
-  document.body.style.overflow = '';
-};
-
-document.querySelectorAll('.js-open-modal').forEach(btn => {
-  btn.addEventListener('click', openModal);
-});
-
-if (modalClose) modalClose.addEventListener('click', closeModal);
-
-modalOverlay.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) closeModal();
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
-
-document.getElementById('modalForm').addEventListener('submit', async (e) => {
+// Formularios de contacto (el de la sección "Contacto" y el del popup) comparten la misma lógica de envío
+function handleLeadFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
   const submitBtn = form.querySelector('.modal__submit');
@@ -40,22 +12,104 @@ document.getElementById('modalForm').addEventListener('submit', async (e) => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Enviando...';
 
-  try {
-    await fetch('https://script.google.com/macros/s/AKfycbztB3r9w2gE5q-GE_LsbDz9eJbZhOPX2Z81pKPHu6Ln7tNlHN6RnP3tsN6LenlDZCyT/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nombre, email, telefono, servicios })
+  fetch('https://script.google.com/macros/s/AKfycbztB3r9w2gE5q-GE_LsbDz9eJbZhOPX2Z81pKPHu6Ln7tNlHN6RnP3tsN6LenlDZCyT/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, email, telefono, servicios })
+  })
+    .then(() => {
+      form.reset();
+      form.innerHTML = '<p class="modal__success">Dentro de las próximas 24h BRCsoluciones te estará contactando para coordinar una reunión.</p>';
+      if (form.closest('.modal-overlay')) {
+        setTimeout(closeModal, 4000);
+      }
+    })
+    .catch(() => {
+      submitBtn.textContent = 'Error al enviar. Intenta de nuevo.';
+      submitBtn.disabled = false;
     });
+}
 
-    form.reset();
-    form.innerHTML = '<p class="modal__success">Dentro de las próximas 24h BRCsoluciones te estará contactando para coordinar una reunión.</p>';
-    setTimeout(() => closeModal(), 4000);
-  } catch {
-    submitBtn.textContent = 'Error al enviar. Intenta de nuevo.';
-    submitBtn.disabled = false;
-  }
+document.querySelectorAll('.js-lead-form').forEach(form => {
+  form.addEventListener('submit', handleLeadFormSubmit);
 });
+
+// Popup de contacto: aparece centrado en pantalla, sin scrollear ni cambiar de página
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+
+function openModal() {
+  if (!modalOverlay) return;
+  modalOverlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  lucide.createIcons();
+}
+
+function closeModal() {
+  if (!modalOverlay) return;
+  modalOverlay.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+if (modalOverlay) {
+  document.querySelectorAll('.js-open-modal').forEach(btn => {
+    btn.addEventListener('click', openModal);
+  });
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+}
+
+// Scroll a anclas internas (#inicio, etc.) compensando el nav fijo
+(function () {
+  function scrollToHash(hash) {
+    if (!hash || hash === '#') return;
+    var target = document.querySelector(hash);
+    if (!target) return;
+    var navEl = document.querySelector('.nav');
+    var offset = (navEl ? navEl.offsetHeight : 0) + 16;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var hash = link.getAttribute('href');
+      var target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+
+      // Cierra el menú móvil de inmediato (sin esperar la transición) antes de hacer scroll
+      var hamburgerEl = document.getElementById('navHamburger');
+      var mobileMenuEl = document.getElementById('navMobile');
+      if (mobileMenuEl && mobileMenuEl.classList.contains('is-open')) {
+        hamburgerEl.classList.remove('is-open');
+        mobileMenuEl.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      history.pushState(null, '', hash);
+      scrollToHash(hash);
+    });
+  });
+
+  // Si la página carga con un hash, espera a que el layout esté listo antes de hacer scroll.
+  if (window.location.hash) {
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        scrollToHash(window.location.hash);
+      }, 120);
+    });
+  }
+})();
 
 // Marquee infinito sin espacios en blanco
 (function () {
@@ -115,3 +169,26 @@ if (hamburger && mobileMenu) {
     link.addEventListener('click', closeMenu);
   });
 }
+
+// Dropdown "Industrias" del nav
+document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
+  const trigger = dropdown.querySelector('.nav__dropdown-trigger');
+  if (!trigger) return;
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const willOpen = !dropdown.classList.contains('is-open');
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+    dropdown.classList.toggle('is-open', willOpen);
+  });
+});
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+  }
+});
