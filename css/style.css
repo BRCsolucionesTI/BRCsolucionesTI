@@ -1845,11 +1845,21 @@ body {
   text-align: center;
 }
 
+.result-card__value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #c0392b;
+  margin-top: -8px;
+}
+
 .result-card__title {
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: #0a0a0a;
+  color: #555;
+  margin-top: -16px;
 }
 
 /* Gráficos minimalistas */
@@ -3102,73 +3112,6 @@ body {
 @media (max-width: 480px) {
   .modal__services {
     grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================
-   POPUP DE CONTACTO (flotante, centrado)
-   ========================================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s;
-}
-
-.modal-overlay.is-open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal {
-  background: #fff;
-  border-radius: 24px;
-  padding: 40px;
-  width: 100%;
-  max-width: 560px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  transform: translateY(20px);
-  transition: transform 0.25s;
-}
-
-.modal-overlay.is-open .modal {
-  transform: translateY(0);
-}
-
-.modal__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: #f0f0f0;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #555;
-  transition: background 0.2s;
-}
-
-.modal__close:hover {
-  background: #e0e0e0;
-}
-
-@media (max-width: 480px) {
-  .modal {
-    padding: 28px 20px;
   }
 }
 
