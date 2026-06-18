@@ -169,26 +169,3 @@ if (hamburger && mobileMenu) {
     link.addEventListener('click', closeMenu);
   });
 }
-
-// Dropdown "Industrias" del nav
-document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
-  const trigger = dropdown.querySelector('.nav__dropdown-trigger');
-  if (!trigger) return;
-
-  trigger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const willOpen = !dropdown.classList.contains('is-open');
-    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
-    dropdown.classList.toggle('is-open', willOpen);
-  });
-});
-
-document.addEventListener('click', () => {
-  document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
-  }
-});
