@@ -454,5 +454,10 @@
 
   <script src="js/main.js"></script>
   <script>lucide.createIcons();</script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function() {
+      fbq('track', 'Lead');
+    });
+  </script>
 </body>
 </html>
