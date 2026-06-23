@@ -7,7 +7,9 @@ function handleLeadFormSubmit(e) {
   const nombre = form.querySelector('input[name="nombre"]').value;
   const empresa = form.querySelector('input[name="empresa"]').value;
   const email = form.querySelector('input[name="email"]').value;
-  const telefono = form.querySelector('input[name="telefono"]').value;
+  const paisInput = form.querySelector('input[name="pais"]');
+  const prefijo = paisInput ? paisInput.value : '';
+  const telefono = prefijo + form.querySelector('input[name="telefono"]').value;
   const servicios = [...form.querySelectorAll('input[name="servicio"]:checked')].map(i => i.value).join(', ') || 'Ninguno seleccionado';
 
   submitBtn.disabled = true;
@@ -31,6 +33,39 @@ function handleLeadFormSubmit(e) {
 
 document.querySelectorAll('.js-lead-form').forEach(form => {
   form.addEventListener('submit', handleLeadFormSubmit);
+});
+
+// Selector de país con bandera para el teléfono
+document.querySelectorAll('.phone-country').forEach(phoneCountry => {
+  const toggle = phoneCountry.querySelector('.phone-country__toggle');
+  const flagImg = phoneCountry.querySelector('.phone-country__flag');
+  const codeSpan = phoneCountry.querySelector('.phone-country__code');
+  const hiddenInput = phoneCountry.querySelector('input[name="pais"]');
+  const phoneInput = phoneCountry.closest('.modal__phone').querySelector('input[name="telefono"]');
+  const items = phoneCountry.querySelectorAll('.phone-country__list li');
+
+  toggle.addEventListener('click', () => {
+    phoneCountry.classList.toggle('is-open');
+  });
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      flagImg.src = item.dataset.flag;
+      flagImg.alt = item.dataset.name;
+      codeSpan.textContent = item.dataset.value;
+      hiddenInput.value = item.dataset.value;
+      phoneInput.maxLength = item.dataset.maxlength;
+      phoneInput.placeholder = item.dataset.placeholder;
+      phoneInput.value = '';
+      items.forEach(i => i.classList.remove('is-selected'));
+      item.classList.add('is-selected');
+      phoneCountry.classList.remove('is-open');
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (!phoneCountry.contains(e.target)) phoneCountry.classList.remove('is-open');
+  });
 });
 
 // Scroll a anclas internas (#inicio, etc.) compensando el nav fijo

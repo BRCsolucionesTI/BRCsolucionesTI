@@ -445,7 +445,25 @@
             <div class="modal__field">
               <label class="modal__label">Teléfono</label>
               <div class="modal__phone">
-                <span class="modal__phone-prefix">+569</span>
+                <div class="phone-country" id="phoneCountry">
+                  <button type="button" class="phone-country__toggle">
+                    <img src="imagenes/chile.png" alt="Chile" class="phone-country__flag" />
+                    <span class="phone-country__code">+569</span>
+                    <i data-lucide="chevron-down" class="phone-country__chevron"></i>
+                  </button>
+                  <ul class="phone-country__list">
+                    <li data-value="+569" data-maxlength="8" data-placeholder="12345678" data-flag="imagenes/chile.png" data-name="Chile" class="is-selected">
+                      <img src="imagenes/chile.png" alt="Chile" /> Chile <span>+569</span>
+                    </li>
+                    <li data-value="+549" data-maxlength="10" data-placeholder="1123456789" data-flag="imagenes/argentina.png" data-name="Argentina">
+                      <img src="imagenes/argentina.png" alt="Argentina" /> Argentina <span>+549</span>
+                    </li>
+                    <li data-value="+51" data-maxlength="9" data-placeholder="912345678" data-flag="imagenes/peru.png" data-name="Perú">
+                      <img src="imagenes/peru.png" alt="Perú" /> Perú <span>+51</span>
+                    </li>
+                  </ul>
+                  <input type="hidden" name="pais" value="+569" />
+                </div>
                 <input type="tel" class="modal__input modal__input--phone" name="telefono" placeholder="12345678" maxlength="8" required />
               </div>
             </div>
