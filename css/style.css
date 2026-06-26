@@ -183,9 +183,9 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.65) 0%,
     rgba(255, 255, 255, 0.45) 50%,
-    rgba(255, 255, 255, 1) 100%
+    rgba(255, 255, 255, 0.95) 100%
   );
   z-index: 1;
   pointer-events: none;
@@ -283,7 +283,7 @@ body {
 .hero__sub {
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   line-height: 1.7;
-  color: #555;
+  color: #222;
   max-width: 850px;
   margin: 0 auto 28px;
   font-weight: 400;
@@ -2886,6 +2886,111 @@ body {
 @media (max-width: 480px) {
   .contact__form-card {
     padding: 16px;
+  }
+}
+
+/* =========================================
+   INDUSTRIAS
+   ========================================= */
+.industries {
+  background: #f7f7f5;
+  padding: 80px 24px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.industries__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.industries__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.industries__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c0392b;
+  margin-bottom: 16px;
+}
+
+.industries__tag::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: #c0392b;
+  display: inline-block;
+}
+
+.industries__title {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.15;
+}
+
+.industries__title--accent {
+  color: #c0392b;
+}
+
+.industries__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.industry-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 48px 24px 40px;
+  text-align: center;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.industry-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+
+.industry-card__icon {
+  width: 64px;
+  height: 64px;
+  background: #fff5f4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #c0392b;
+}
+
+.industry-card__icon svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.8;
+}
+
+.industry-card__name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .industries__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 360px;
   }
 }
 
