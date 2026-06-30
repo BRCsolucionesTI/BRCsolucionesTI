@@ -11,6 +11,7 @@ function handleLeadFormSubmit(e) {
   const prefijo = paisInput ? paisInput.value : '';
   const telefono = prefijo + form.querySelector('input[name="telefono"]').value;
   const servicios = [...form.querySelectorAll('input[name="servicio"]:checked')].map(i => i.value).join(', ') || 'Ninguno seleccionado';
+  const descripcion = form.querySelector('textarea[name="descripcion"]').value;
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Enviando...';
@@ -19,7 +20,7 @@ function handleLeadFormSubmit(e) {
     method: 'POST',
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nombre, empresa, email, telefono, servicios })
+    body: JSON.stringify({ nombre, empresa, email, telefono, servicios, descripcion })
   })
     .then(() => {
       form.reset();
