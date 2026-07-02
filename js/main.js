@@ -23,6 +23,9 @@ function handleLeadFormSubmit(e) {
     body: JSON.stringify({ nombre, empresa, email, telefono, servicios, descripcion })
   })
     .then(() => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', { send_to: 'AW-18264283100/D79oCJqu1MkcENyvi4VE' });
+      }
       form.reset();
       form.innerHTML = '<p class="modal__success">Dentro de las próximas 24h BRCsoluciones te estará contactando para coordinar una reunión.</p>';
     })
