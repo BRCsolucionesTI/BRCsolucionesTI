@@ -43,7 +43,7 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
-        <img src="imagenes/brc-soluciones-logo.png" alt="BRC Soluciones TI" class="nav__logo-img" />
+        <img src="imagenes/BRC_soluciones_TI.svg" alt="BRC Soluciones TI" class="nav__logo-img" />
         <span class="nav__logo-text">
           <span class="nav__logo-name">BRC <span style="color: #9ca3af; font-size: 0.65em;">Soluciones</span></span>
         </span>
@@ -85,9 +85,7 @@
     <div class="cases__inner">
 
       <div class="cases__header">
-        <span class="cases__tag">Casos de éxito</span>
-        <h2 class="cases__title">Orden operacional en<br />empresas reales</h2>
-        <p class="cases__sub">Cada proyecto nace de entender un proceso en terreno y atacar primero el dolor real. Estos son algunos ejemplos de cómo ayudamos a nuestros clientes a operar con más control, visibilidad y eficiencia.</p>
+        <h2 class="cases__title">Casos de éxito</h2>
       </div>
 
       <div class="cases__grid">
@@ -111,41 +109,15 @@
                 hasta la recepción final, conectando cada área en tiempo real.
               </p>
 
-              <div class="case-card__modules">
-                <span class="case-card__modules-title">Módulos del sistema</span>
-                <ul class="case-card__module-list">
-                  <li><i data-lucide="calendar-check"></i> Programación y gestión de obra</li>
-                  <li><i data-lucide="users"></i> Gestión de subcontratos</li>
-                  <li><i data-lucide="package"></i> Control de materiales</li>
-                  <li><i data-lucide="trending-up"></i> Seguimiento de avances</li>
-                  <li><i data-lucide="shield-check"></i> Calidad y certificaciones</li>
-                  <li><i data-lucide="clipboard-check"></i> Recepción de obra</li>
-                  <li><i data-lucide="cpu"></i> Asistente de Inteligencia Artificial</li>
-                </ul>
-              </div>
+              <p class="case-card__desc">
+                Implementamos una app web para oficina, una app móvil para terreno y un asistente de IA, cubriendo desde la programación de obra y los subcontratos hasta el control de materiales, avances, calidad y recepción final, todo centralizado y en tiempo real.
+              </p>
 
-              <div class="case-card__apps">
-                <div class="case-app">
-                  <div class="case-app__icon"><i data-lucide="monitor"></i></div>
-                  <div class="case-app__info">
-                    <span class="case-app__name">App Web</span>
-                    <span class="case-app__desc">Panel centralizado para oficina con visibilidad en tiempo real de todos los frentes de obra.</span>
-                  </div>
-                </div>
-                <div class="case-app">
-                  <div class="case-app__icon case-app__icon--mobile"><i data-lucide="smartphone"></i></div>
-                  <div class="case-app__info">
-                    <span class="case-app__name">App Móvil</span>
-                    <span class="case-app__desc">Terreno conectado con oficina. Registro de avances y gestión de calidad desde el campo.</span>
-                  </div>
-                </div>
-                <div class="case-app">
-                  <div class="case-app__icon case-app__icon--ai"><i data-lucide="cpu"></i></div>
-                  <div class="case-app__info">
-                    <span class="case-app__name">Asistente de IA</span>
-                    <span class="case-app__desc">Asistente inteligente entrenado con los datos del proyecto para responder consultas, detectar desvíos y apoyar la toma de decisiones en tiempo real.</span>
-                  </div>
-                </div>
+              <div class="case-card__tags">
+                <span class="case-card__tag">App Web</span>
+                <span class="case-card__tag">App Móvil</span>
+                <span class="case-card__tag">Plataforma Centralizada</span>
+                <span class="case-card__tag">Asistente IA</span>
               </div>
             </div>
           </div>
@@ -165,6 +137,55 @@
                 <span class="case-slider__dot case-slider__dot--active" onclick="slideTo('slider-dag', 0)"></span>
                 <span class="case-slider__dot" onclick="slideTo('slider-dag', 1)"></span>
                 <span class="case-slider__dot" onclick="slideTo('slider-dag', 2)"></span>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- CASO 2: FORCMIN Mining Solutions -->
+        <article class="case-card case-card--horizontal">
+
+          <!-- COLUMNA IZQUIERDA -->
+          <div class="case-card__left">
+            <div class="case-card__header">
+              <div class="case-card__client">
+                <span class="case-card__client-name">FORC<span class="client__name--green">MIN</span> <strong style="color:#0a0a0a;">Mining Solutions</strong></span>
+                <span class="case-card__industry">Minería</span>
+              </div>
+              <span class="case-card__badge">Plataforma de Gestión de Arriendos</span>
+            </div>
+
+            <div class="case-card__body">
+              <p class="case-card__desc">
+                Desarrollamos una plataforma de software a medida para FORCMIN que centraliza el control y la gestión del arriendo de equipos mineros, automatiza la generación de cotizaciones y el seguimiento de certificaciones.
+              </p>
+
+              <div class="case-card__tags">
+                <span class="case-card__tag">App Web</span>
+                <span class="case-card__tag">Cotizaciones Automatizadas</span>
+                <span class="case-card__tag">Seguimiento de Certificaciones</span>
+                <span class="case-card__tag">Plataforma Centralizada</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMNA DERECHA: slider -->
+          <div class="case-card__right">
+            <span class="case-card__modules-title">Imágenes del proyecto</span>
+            <div class="case-slider" id="slider-forcmin">
+              <div class="case-slider__track" id="slider-forcmin-track">
+                <img src="imagenes/fotoprincipalforcmin.png" alt="Vista 1" class="case-slider__img" onclick="openLightbox(this.src)" />
+                <img src="imagenes/foto1forcmin.png" alt="Vista 3" class="case-slider__img" onclick="openLightbox(this.src)" />
+                <img src="imagenes/foto2forcmin.png" alt="Vista 4" class="case-slider__img" onclick="openLightbox(this.src)" />
+              </div>
+              <button class="case-slider__btn case-slider__btn--prev" onclick="slideMove('slider-forcmin', -1)"><i data-lucide="chevron-left"></i></button>
+              <button class="case-slider__btn case-slider__btn--next" onclick="slideMove('slider-forcmin',  1)"><i data-lucide="chevron-right"></i></button>
+              <div class="case-slider__dots" id="slider-forcmin-dots">
+                <span class="case-slider__dot case-slider__dot--active" onclick="slideTo('slider-forcmin', 0)"></span>
+                <span class="case-slider__dot" onclick="slideTo('slider-forcmin', 1)"></span>
+                <span class="case-slider__dot" onclick="slideTo('slider-forcmin', 2)"></span>
+                <span class="case-slider__dot" onclick="slideTo('slider-forcmin', 3)"></span>
               </div>
             </div>
           </div>

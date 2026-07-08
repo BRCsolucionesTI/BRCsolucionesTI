@@ -38,199 +38,75 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     /* ---- SERVICES PAGE ---- */
-    .svc-page {
-      padding: 140px 0 100px;
-      background: #ffffff;
-    }
-    .svc-page__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
+    .svc-hero {
+      min-height: 60vh;
       display: flex;
-      flex-direction: column;
-      gap: 80px;
-    }
-
-    /* ---- SERVICE BLOCK ---- */
-    .svc-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .svc-block--reverse {
-      direction: rtl;
-    }
-    .svc-block--reverse > * {
-      direction: ltr;
-    }
-    .svc-block__tag {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #c0392b;
-      margin-bottom: 16px;
+      padding: 140px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    .svc-block__tag::before {
+    .svc-hero--transformacion {
+      background-image: url('imagenes/6.png');
+    }
+    .svc-hero--software {
+      background-image: url('imagenes/5.png');
+    }
+    .svc-hero::after {
       content: '';
-      width: 16px;
-      height: 1.5px;
-      background: #c0392b;
-      display: block;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.2) 100%);
+      z-index: 1;
     }
-    .svc-block__title {
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-      font-weight: 900;
+    .svc-hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+    }
+    .svc-hero__title {
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-weight: 400;
       line-height: 1.1;
-      letter-spacing: -0.04em;
-      color: #0a0a0a;
+      letter-spacing: -0.03em;
+      color: #ffffff;
       margin-bottom: 16px;
     }
-    .svc-block__desc {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 32px;
+    .svc-hero__desc {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 28px;
     }
-    .svc-block__cta {
+    .svc-hero__cta {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #0a0a0a;
-      color: #fff;
+      background: #ffffff;
+      color: #0a0a0a;
       font-size: 0.9rem;
       font-weight: 600;
       padding: 13px 24px;
       border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
+      text-decoration: none;
       transition: background 0.2s, transform 0.2s;
     }
-    .svc-block__cta:hover {
-      background: #c0392b;
+    .svc-hero__cta:hover {
+      background: #e5e5e5;
       transform: translateY(-2px);
     }
-    .svc-block__cta svg {
+    .svc-hero__cta svg {
       width: 16px;
       height: 16px;
     }
 
-
-    /* Stages panel */
-    .svc-stages {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .svc-stage {
-      display: flex;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    .svc-stage:last-child {
-      border-bottom: none;
-    }
-    .svc-stage__num {
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      color: #e8e8e8;
-      line-height: 1;
-      min-width: 36px;
-      padding-top: 2px;
-      transition: color 0.2s;
-    }
-    .svc-stage:hover .svc-stage__num {
-      color: #c0392b;
-    }
-    .svc-stage__title {
-      font-size: 0.93rem;
-      font-weight: 700;
-      color: #0a0a0a;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-    .svc-stage__text {
-      font-size: 0.84rem;
-      line-height: 1.65;
-      color: #777;
-    }
-
-    /* Features panel */
-    .svc-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .svc-feature {
-      background: #f9f9f9;
-      border-radius: 14px;
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .svc-feature:hover {
-      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-    .svc-feature__icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #fdf0ef;
-      border: 1px solid #f5c6c2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .svc-feature__icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: #c0392b;
-      stroke-width: 1.8;
-    }
-    .svc-feature__title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #0a0a0a;
-      letter-spacing: -0.01em;
-    }
-    .svc-feature__text {
-      font-size: 0.8rem;
-      line-height: 1.6;
-      color: #777;
-    }
-
-    /* Divider */
-    .svc-divider {
-      border: none;
-      border-top: 1px solid #f0f0f0;
-    }
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 860px) {
-      .svc-block {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .svc-block--reverse {
-        direction: ltr;
-      }
-      .svc-features {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media (max-width: 500px) {
-      .svc-features {
-        grid-template-columns: 1fr;
+    @media (max-width: 600px) {
+      .svc-hero {
+        min-height: 46vh;
+        padding: 120px 6vw 48px;
       }
     }
   </style>
@@ -241,7 +117,7 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
-        <img src="imagenes/brc-soluciones-logo.png" alt="BRC Soluciones TI" class="nav__logo-img" />
+        <img src="imagenes/BRC_soluciones_TI.svg" alt="BRC Soluciones TI" class="nav__logo-img" />
         <span class="nav__logo-text">
           <span class="nav__logo-name">BRC <span style="color: #9ca3af; font-size: 0.65em;">Soluciones</span></span>
         </span>
@@ -279,108 +155,22 @@
   </div>
 
   <!-- SERVICIOS -->
-  <section class="svc-page">
-    <div class="svc-page__inner">
 
-      <!-- SERVICIO 1: TRANSFORMACIÓN DIGITAL -->
-      <div class="svc-block">
-        <div class="svc-block__left">
-          <span class="svc-block__tag">Servicio 01</span>
-          <h2 class="svc-block__title">Diagnóstico Tecnológico Operacional</h2>
-          <p class="svc-block__desc">Vamos a terreno a entender cómo opera tu equipo hoy — no a vender tecnología. Identificamos dónde está el dolor real y te decimos qué atacar primero, con impacto inmediato. Sin proyectos eternos ni precios de gran empresa.</p>
-          <p class="svc-block__desc" style="margin-bottom:0;font-size:0.92rem;color:#888;">Ideal para equipos que manejan información crítica en Excel, WhatsApp o papel, con procesos que nadie controla bien.</p>
-          <br />
-          <a href="index.html#contacto" class="svc-block__cta">Consultar por este servicio <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="svc-block__right">
-          <div class="svc-stages">
-            <div class="svc-stage">
-              <div class="svc-stage__num">01</div>
-              <div>
-                <div class="svc-stage__title">Entendemos tu proceso en terreno</div>
-                <div class="svc-stage__text">Vemos cómo trabaja tu equipo realmente, no cómo dice el manual que debería trabajar.</div>
-              </div>
-            </div>
-            <div class="svc-stage">
-              <div class="svc-stage__num">02</div>
-              <div>
-                <div class="svc-stage__title">Identificamos el dolor real</div>
-                <div class="svc-stage__text">Detectamos dónde se pierde control, tiempo o información en la operación diaria.</div>
-              </div>
-            </div>
-            <div class="svc-stage">
-              <div class="svc-stage__num">03</div>
-              <div>
-                <div class="svc-stage__title">Qué atacar primero</div>
-                <div class="svc-stage__text">Proponemos un plan concreto priorizado por impacto inmediato en el negocio.</div>
-              </div>
-            </div>
-            <div class="svc-stage">
-              <div class="svc-stage__num">04</div>
-              <div>
-                <div class="svc-stage__title">Acompañamos la implementación</div>
-                <div class="svc-stage__text">Te ayudamos a poner en marcha el cambio y a que el equipo lo adopte de verdad.</div>
-              </div>
-            </div>
-            <div class="svc-stage">
-              <div class="svc-stage__num">05</div>
-              <div>
-                <div class="svc-stage__title">Evolución continua</div>
-                <div class="svc-stage__text">Una vez resuelto el dolor principal, revisamos qué sigue para seguir ganando orden.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- SERVICIO 1: TRANSFORMACIÓN DIGITAL -->
+  <section class="svc-hero svc-hero--transformacion">
+    <div class="svc-hero__content">
+      <h2 class="svc-hero__title">Transformación Digital</h2>
+      <p class="svc-hero__desc">Vamos a terreno, entendemos tu proceso y lo transformamos en un sistema simple, centralizado y bajo control.</p>
+      <a href="index.html#contacto" class="svc-hero__cta">Consultar por este servicio <i data-lucide="arrow-right"></i></a>
+    </div>
+  </section>
 
-      <hr class="svc-divider" />
-
-      <!-- SERVICIO 2: SOFTWARE A MEDIDA -->
-      <div class="svc-block svc-block--reverse">
-        <div class="svc-block__left">
-          <span class="svc-block__tag">Servicio 02</span>
-          <h2 class="svc-block__title">Software a Medida</h2>
-          <p class="svc-block__desc">Construimos los sistemas que necesitas para sacar tu operación del Excel, el WhatsApp y el papel: seguimiento de operaciones, reportería centralizada y automatización de los flujos que hoy se hacen a mano. Sin plantillas genéricas ni proyectos eternos.</p>
-          <p class="svc-block__desc" style="margin-bottom:0;font-size:0.92rem;color:#888;">Para empresas con procesos críticos que no tienen solución en el mercado o que ya saben qué necesitan construir.</p>
-          <br />
-          <a href="index.html#contacto" class="svc-block__cta">Consultar por este servicio <i data-lucide="arrow-right"></i></a>
-        </div>
-        <div class="svc-block__right">
-          <div class="svc-features">
-            <div class="svc-feature">
-              <div class="svc-feature__icon"><i data-lucide="sliders"></i></div>
-              <div class="svc-feature__title">Seguimiento de operaciones</div>
-              <div class="svc-feature__text">Visibilidad en tiempo real de lo que pasa en terreno, sin esperar el reporte de fin de mes.</div>
-            </div>
-            <div class="svc-feature">
-              <div class="svc-feature__icon"><i data-lucide="bar-chart-2"></i></div>
-              <div class="svc-feature__title">Reportería centralizada</div>
-              <div class="svc-feature__text">Toda la información operacional en un solo lugar, lista para tomar decisiones.</div>
-            </div>
-            <div class="svc-feature">
-              <div class="svc-feature__icon"><i data-lucide="cpu"></i></div>
-              <div class="svc-feature__title">Automatización de flujos manuales</div>
-              <div class="svc-feature__text">Lo que hoy se hace a mano en Excel o WhatsApp, pasa a un proceso controlado.</div>
-            </div>
-            <div class="svc-feature">
-              <div class="svc-feature__icon"><i data-lucide="radio"></i></div>
-              <div class="svc-feature__title">Control en terreno</div>
-              <div class="svc-feature__text">Registro y monitoreo desde donde ocurre la operación, no desde la oficina.</div>
-            </div>
-            <div class="svc-feature">
-              <div class="svc-feature__icon"><i data-lucide="layers"></i></div>
-              <div class="svc-feature__title">Integraciones</div>
-              <div class="svc-feature__text">Conectamos tu sistema nuevo con las herramientas que ya usas.</div>
-            </div>
-            <div class="svc-feature">
-              <div class="svc-feature__icon"><i data-lucide="shield-check"></i></div>
-              <div class="svc-feature__title">Soporte y evolución</div>
-              <div class="svc-feature__text">Acompañamos el sistema después del lanzamiento y lo hacemos crecer contigo.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+  <!-- SERVICIO 2: SOFTWARE A MEDIDA -->
+  <section class="svc-hero svc-hero--software">
+    <div class="svc-hero__content">
+      <h2 class="svc-hero__title">Desarrollo de Software a Medida</h2>
+      <p class="svc-hero__desc">Construimos los sistemas que necesitas para sacar tu operación del Excel, el WhatsApp y el papel.</p>
+      <a href="index.html#contacto" class="svc-hero__cta">Consultar por este servicio <i data-lucide="arrow-right"></i></a>
     </div>
   </section>
 

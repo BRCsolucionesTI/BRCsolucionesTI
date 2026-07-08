@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="2000" height="2000" viewBox="0 0 2000 2000"
+ preserveAspectRatio="xMidYMid meet">
+<g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)" stroke="none">
+<path fill="#000000" d="M6290 14844 c0 -8 3471 -6137 3484 -6152 9 -9 433 -12 2078 -10
+l2066 3 -1746 3083 -1746 3082 -2068 0 c-1137 0 -2068 -3 -2068 -6z"/>
+<path fill="#c0392b" d="M6080 6915 l0 -1765 1820 0 1820 0 0 1765 0 1765 -1820 0 -1820 0 0
+-1765z"/>
+</g>
+</svg>
