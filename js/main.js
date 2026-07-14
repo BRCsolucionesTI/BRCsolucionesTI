@@ -115,32 +115,7 @@ document.querySelectorAll('.phone-country').forEach(phoneCountry => {
   }
 })();
 
-// Marquee infinito sin espacios en blanco
-(function () {
-  function setupMarquee() {
-    var track = document.getElementById('clientsTrack');
-    if (!track) return;
-
-    var singleSet = track.innerHTML;
-    var setWidth = track.scrollWidth;
-
-    if (setWidth === 0) {
-      requestAnimationFrame(setupMarquee);
-      return;
-    }
-
-    // Cuántas copias necesitamos para que UNA mitad llene la pantalla
-    var copies = Math.max(Math.ceil(window.innerWidth / setWidth) + 1, 2);
-
-    var half = '';
-    for (var i = 0; i < copies; i++) half += singleSet;
-
-    // El track = mitad A + mitad B (idénticas), la animación -50% hace el loop
-    track.innerHTML = half + half;
-  }
-
-  requestAnimationFrame(setupMarquee);
-})();
+// Fila de clientes estática (sin marquee)
 
 // Nav shadow on scroll
 const nav = document.querySelector('.nav');
